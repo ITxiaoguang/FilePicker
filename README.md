@@ -13,20 +13,67 @@
 #### 1.在Project的build.gradle中添加仓库地址
 
 ``` gradle
-	allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
 	}
+}
 ```
 
 #### 2.在Module目录下的build.gradle中添加依赖
 [![](https://jitpack.io/v/ITxiaoguang/FilePicker.svg)](https://jitpack.io/#ITxiaoguang/FilePicker)
 ``` gradle
-	dependencies {
+dependencies {
+    implementation 'com.github.ITxiaoguang:FilePicker:xxx'
+}
+```
 
-            implementation 'com.github.ITxiaoguang:FilePicker:xxx'
+使用方法：
 
+```java
+
+    private void filePicker() {
+        String[] zips = {"zip", "rar"};
+	String[] doc = {"doc", "docx"};
+	String[] ppt = {"ppt", "pptx"};
+	String[] pdf = {"pdf"};
+	String[] txt = {"txt"};
+	String[] apk = {"apk"};
+	String[] xls = {"xls", "xlsx"};
+	String[] music = {"m3u", "m4a", "m4b", "m4p", "ogg", "wma", "wmv", "ogg", "rmvb", "mp2", "mp3", "aac", "awb", "amr", "mka"};
+	FilePickerBuilder.getInstance()
+		.setMaxCount(9)// 最多选择
+		// .setSelectedFiles(docPaths)// 已选择
+		// .setActivityTheme(R.style.DarkTheme2)// 主题
+		.enableCameraSupport(false)// 支持摄像头
+		.showPic(true)// 显示图片tab栏
+		.showVideo(true)// 显示视频tab栏
+		.enableDocSupport(false)// 显示文档tab栏
+		.addFileSupport("Word", doc, R.drawable.ic_file_word)// tab栏描述；类型；tab栏下item的图标
+		.addFileSupport("压缩包", zips, R.drawable.ic_file_zip)
+		.addFileSupport("PDF", pdf, R.drawable.ic_file_pdf)
+		.addFileSupport("Txt文本", txt, R.drawable.ic_file_txt)
+		.addFileSupport("PPT", ppt, R.drawable.ic_file_ppt)
+		.addFileSupport("安装包", apk, R.drawable.ic_file_zip)
+		.addFileSupport("Excel表格", xls, R.drawable.ic_file_excel)
+		.addFileSupport("音乐", music, R.drawable.ic_file_music)
+		.setActivityTitle("请选择文件")// 标题
+		.sortDocumentsBy(SortingTypes.name)// 
+		.withOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)// 
+		.pickFile(this, REQUEST_CODE_FILE);// 回调
+}
+```
+
+```java
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	super.onActivityResult(requestCode, resultCode, data);
+	if (resultCode == Activity.RESULT_OK) {
+	    if (requestCode == REQUEST_CODE_FILE) {//选择文件类型回调
+		ArrayList<String> filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS);
+		Toast.makeText(this, filePaths.toString(), Toast.LENGTH_SHORT).show();
+	    }
 	}
+    }
 ```
