@@ -62,7 +62,7 @@ dependencies {
 		.sortDocumentsBy(SortingTypes.name)// 
 		.withOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)// 
 		.pickFile(this, REQUEST_CODE_FILE);// 回调
-}
+    }
 ```
 
 ```java
