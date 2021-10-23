@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_PERMISSION_CAMERA = 10011;
-    private static final int REQUEST_CODE_PERMISSION_STORAGE = 10012;
 
     private static final int REQUEST_CODE_FILE = 10;//文件
 
@@ -47,18 +46,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             filePicker();
         }
-    }
-
-    private boolean checkStoragePermission() {
-        //判断权限
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_CODE_PERMISSION_STORAGE);
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override
