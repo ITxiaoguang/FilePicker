@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_images">All Images</string>
+    <string name="done">Done</string>
+
+    <string name="permission_filepicker_rationale">Storage permission is needed to access files.</string>
+    <string name="no_files_found">No Files Found</string>
+    <string name="attachments_title_text" formatted="false">(%d/%d)</string>
+    <string name="attachments_num" formatted="false">%d</string>
+    <string name="select_photo_text">Select a media</string>
+    <string name="select_doc_text">Select a document</string>
+    <string name="no_camera_exists">No Application exists for camera!</string>
+    <string name="pdf_title">PDF</string>
+    <string name="ppt_title">PPT</string>
+    <string name="word_title">DOC</string>
+    <string name="excel_title">XLS</string>
+    <string name="txt_title">TXT</string>
+    <string name="videos">Videos</string>
+    <string name="images">Images</string>
+    <string name="all_photos">All Photos</string>
+    <string name="all_videos">All Videos</string>
+    <string name="all_files">All Files</string>
+
+    <!--  新增  -->
+    <string name="no_all_auth">Not fully authorized, some functions may not work properly!</string>
+    <string name="not_support_file_form">The file format is not supported</string>
+    <string name="try_it">Can\'t find it? Try it here~</string>
+    <string name="video">Video</string>
+    <string name="camera_settings">There is no camera permission, do you want to go to setup</string>
+    <string name="voice">Voice</string>
+
+</resources>
