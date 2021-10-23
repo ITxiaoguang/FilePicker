@@ -19,6 +19,7 @@ abstract class BaseFilePickerActivity : AppCompatActivity() {
         setContentView(layout)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        // fixme 这里有bug
 //        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
