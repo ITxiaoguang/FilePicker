@@ -47,11 +47,11 @@ class FilePickerActivity : BaseFilePickerActivity(), PhotoPickerFragmentListener
                 }
 
                 PickerManager.clearSelections()
-//                if (type == FilePickerConst.MEDIA_PICKER) {
-//                    PickerManager.add(selectedPaths, FilePickerConst.FILE_TYPE_MEDIA)
-//                } else {
-//                    PickerManager.add(selectedPaths, FilePickerConst.FILE_TYPE_DOCUMENT)
-//                }
+                if (type == FilePickerConst.MEDIA_PICKER) {
+                    PickerManager.add(selectedPaths, FilePickerConst.FILE_TYPE_MEDIA)
+                } else {
+                    PickerManager.add(selectedPaths, FilePickerConst.FILE_TYPE_DOCUMENT)
+                }
             }
 
             setToolbarTitle(PickerManager.currentCount)

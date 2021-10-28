@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_CODE_FILE) {//选择文件
+                docPaths.clear();
                 ArrayList<String> filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS);
                 docPaths.addAll(filePaths);
                 Toast.makeText(this, filePaths.toString(), Toast.LENGTH_SHORT).show();
