@@ -45,11 +45,11 @@ dependencies {
 	String[] music = {"m3u", "m4a", "m4b", "m4p", "ogg", "wma", "wmv", "ogg", "rmvb", "mp2", "mp3", "aac", "awb", "amr", "mka"};
 	FilePickerBuilder.getInstance()
 		.setMaxCount(9)// 最多选择
-                .setSelectedFiles(docPaths)
-                .setActivityTheme(R.style.LibAppTheme)
+                .setSelectedFiles(docPaths)// 已选择文件地址
+                .setActivityTheme(R.style.LibAppTheme)// 样式
 		.enableCameraSupport(false)// 支持摄像头
-		.showPic(true)// 显示图片tab栏
-		.showVideo(true)// 显示视频tab栏
+		.showPic(true)// tab栏显示图片
+		.showVideo(true)// tab栏显示视频
 		.enableDocSupport(false)// 显示文档tab栏
 		.addFileSupport("Word", doc, R.drawable.ic_file_word)// tab栏描述；类型；tab栏下item的图标
 		.addFileSupport("压缩包", zips, R.drawable.ic_file_zip)
