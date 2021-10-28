@@ -49,9 +49,7 @@
         android:maxLines="1"
         android:textColor="@android:color/black"
         android:textSize="@dimen/file_name_textSize"
-        tools:text="PPDF_112121.pdf"
-
-        />
+        tools:text="PPDF_112121.pdf" />
 
     <TextView
         android:id="@+id/file_size_tv"
@@ -60,6 +58,7 @@
         android:layout_below="@+id/file_name_tv"
         android:layout_toEndOf="@+id/file_iv"
         android:layout_toRightOf="@+id/file_iv"
+        android:textColor="@android:color/darker_gray"
         tools:text="1.2MB" />
 
 
@@ -70,6 +69,11 @@
         android:layout_height="@dimen/file_item_checkbox_size"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="20dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>

@@ -5,8 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.view.*
-import android.widget.ProgressBar
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -15,9 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-
 import com.xiaoguang.widget.filepicker.FilePickerConst
 import com.xiaoguang.widget.filepicker.PickerManager
+import com.xiaoguang.widget.filepicker.R
 import com.xiaoguang.widget.filepicker.adapters.FileAdapterListener
 import com.xiaoguang.widget.filepicker.adapters.PhotoGridAdapter
 import com.xiaoguang.widget.filepicker.cursors.loadercallbacks.FileResultCallback
@@ -27,7 +29,7 @@ import com.xiaoguang.widget.filepicker.utils.AndroidLifecycleUtils
 import com.xiaoguang.widget.filepicker.utils.ImageCaptureManager
 import java.io.IOException
 import java.util.*
-import com.xiaoguang.widget.filepicker.R
+
 /**
  * 文件选择
  */
@@ -35,7 +37,6 @@ class MediaDetailPickerFragment : BaseFragment(), FileAdapterListener {
     lateinit var recyclerView: RecyclerView
 
     lateinit var emptyView: TextView
-    private var progressBar: ProgressBar? = null
     private var mListener: PhotoPickerFragmentListener? = null
     private var photoGridAdapter: PhotoGridAdapter? = null
     private var imageCaptureManager: ImageCaptureManager? = null
@@ -81,7 +82,6 @@ class MediaDetailPickerFragment : BaseFragment(), FileAdapterListener {
 
     override fun initView(view: View) {
         recyclerView = view.findViewById(R.id.recyclerview)
-        progressBar = view.findViewById(R.id.progress_bar)
         emptyView = view.findViewById(R.id.empty_view)
         arguments?.let {
             fileType = it.getInt(BaseFragment.FILE_TYPE)
@@ -125,7 +125,6 @@ class MediaDetailPickerFragment : BaseFragment(), FileAdapterListener {
             MediaStoreHelper.getDirs(it.contentResolver, mediaStoreArgs,
                     object : FileResultCallback<PhotoDirectory> {
                         override fun onResultCallback(files: List<PhotoDirectory>) {
-                            progressBar?.visibility = View.GONE
                             if (isAdded) {
                                 updateList(files)
                             }

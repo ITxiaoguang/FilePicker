@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-
 import com.xiaoguang.widget.filepicker.FilePickerConst
 import com.xiaoguang.widget.filepicker.PickerManager
 import com.xiaoguang.widget.filepicker.R
@@ -72,7 +71,7 @@ class DocPickerFragment : BaseFragment(), ViewPager.OnPageChangeListener {
         val supportedTypes = PickerManager.getFileTypes()
         //添加fragment
         if (PickerManager.showPic) {
-            adapter!!.addFragment(MediaFolderPickerFragment.newInstance(FilePickerConst.MEDIA_TYPE_IMAGE), getString(R.string.images))
+            adapter!!.addFragment(MediaFolderPickerFragment.newInstance(FilePickerConst.MEDIA_TYPE_IMAGE), getString(R.string.image))
         }
         if (PickerManager.showVideo) {
             adapter!!.addFragment(MediaFolderPickerFragment.newInstance(FilePickerConst.MEDIA_TYPE_VIDEO), getString(R.string.video))

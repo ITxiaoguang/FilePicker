@@ -31,6 +31,7 @@
     <string name="not_support_file_form">The file format is not supported</string>
     <string name="try_it">Can\'t find it? Try it here~</string>
     <string name="video">Video</string>
+    <string name="image">Image</string>
     <string name="camera_settings">There is no camera permission, do you want to go to setup</string>
     <string name="voice">Voice</string>
 

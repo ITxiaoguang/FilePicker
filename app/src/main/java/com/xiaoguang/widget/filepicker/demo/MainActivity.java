@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private ArrayList<String> docPaths = new ArrayList<>();
+
     private void filePicker() {
         String[] zips = {"zip", "rar"};
         String[] doc = {"doc", "docx"};
@@ -77,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         String[] music = {"m3u", "m4a", "m4b", "m4p", "ogg", "wma", "wmv", "ogg", "rmvb", "mp2", "mp3", "aac", "awb", "amr", "mka"};
         FilePickerBuilder.getInstance()
                 .setMaxCount(9)
-//                .setSelectedFiles(docPaths)
-//                .setActivityTheme(R.style.DarkTheme2)
+                .setSelectedFiles(docPaths)
+                .setActivityTheme(R.style.LibAppTheme)
                 .enableCameraSupport(false)
                 .showPic(true)
                 .showVideo(true)
@@ -103,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_CODE_FILE) {//选择文件
                 ArrayList<String> filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS);
+                docPaths.addAll(filePaths);
                 Toast.makeText(this, filePaths.toString(), Toast.LENGTH_SHORT).show();
             }
         }

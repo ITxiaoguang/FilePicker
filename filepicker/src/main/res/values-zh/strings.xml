@@ -25,6 +25,7 @@
     <string name="not_support_file_form">不支持該文件格式</string>
     <string name="try_it">找不到？试试这里吧~</string>
     <string name="video">视频</string>
+    <string name="image">图片</string>
     <string name="camera_settings">没有相机权限，是否前往设置</string>
     <string name="voice">音声</string>
 
