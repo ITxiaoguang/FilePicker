@@ -29,6 +29,20 @@ dependencies {
 }
 ```
 
+#### 3.加上Android10.0 需要在`AndroidManifest.xml`文件中`application`出加上
+```xml
+<application
+  android:requestLegacyExternalStorage="true"
+  ...
+  />
+```
+
+#### 4.`AndroidManifest.xml`加上读写权限，代码里并请求读写权限
+```xml
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
 使用方法：
 
 ```java
