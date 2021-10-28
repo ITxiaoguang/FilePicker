@@ -32,6 +32,7 @@ dependencies {
 使用方法：
 
 ```java
+    private ArrayList<String> docPaths = new ArrayList<>();
 
     private void filePicker() {
         String[] zips = {"zip", "rar"};
@@ -44,8 +45,8 @@ dependencies {
 	String[] music = {"m3u", "m4a", "m4b", "m4p", "ogg", "wma", "wmv", "ogg", "rmvb", "mp2", "mp3", "aac", "awb", "amr", "mka"};
 	FilePickerBuilder.getInstance()
 		.setMaxCount(9)// 最多选择
-		// .setSelectedFiles(docPaths)// 已选择
-		// .setActivityTheme(R.style.DarkTheme2)// 主题
+                .setSelectedFiles(docPaths)
+                .setActivityTheme(R.style.LibAppTheme)
 		.enableCameraSupport(false)// 支持摄像头
 		.showPic(true)// 显示图片tab栏
 		.showVideo(true)// 显示视频tab栏
@@ -59,8 +60,8 @@ dependencies {
 		.addFileSupport("Excel表格", xls, R.drawable.ic_file_excel)
 		.addFileSupport("音乐", music, R.drawable.ic_file_music)
 		.setActivityTitle("请选择文件")// 标题
-		.sortDocumentsBy(SortingTypes.name)// 
-		.withOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)// 
+		.sortDocumentsBy(SortingTypes.name)
+		.withOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
 		.pickFile(this, REQUEST_CODE_FILE);// 回调
     }
 ```
@@ -71,8 +72,10 @@ dependencies {
 	super.onActivityResult(requestCode, resultCode, data);
 	if (resultCode == Activity.RESULT_OK) {
 	    if (requestCode == REQUEST_CODE_FILE) {//选择文件类型回调
-		ArrayList<String> filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS);
-		Toast.makeText(this, filePaths.toString(), Toast.LENGTH_SHORT).show();
+		docPaths.clear();
+                ArrayList<String> filePaths = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS);
+                docPaths.addAll(filePaths);
+                Toast.makeText(this, filePaths.toString(), Toast.LENGTH_SHORT).show();
 	    }
 	}
     }
